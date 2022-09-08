@@ -195,7 +195,7 @@ boolean kaltstart = true;        // true = Rancilio started for first time
 boolean emergencyStop = false;   // Notstop bei zu hoher Temperatur
 double EmergencyStopTemp = 120;  // Temp EmergencyStopTemp
 float inX = 0, inY = 0, inOld = 0, inSum = 0; // used for filter()
-int bars = 0;  // used for getSignalStrength()
+int wifi_bars = 0;  // used for getSignalStrength()
 boolean brewDetected = 0;
 boolean setupDone = false;
 int backflushON = 0;      // 1 = activate backflush
@@ -403,7 +403,7 @@ unsigned long lastTempEvent = 0;
 unsigned long tempEventInterval = 1000;
 
 /**
- * @brief Get Wifi signal strength and set bars for display
+ * @brief Get Wifi signal strength and set wifi_bars for display
  */
 void getSignalStrength() {
     if (offlineMode == 1) return;
@@ -417,15 +417,15 @@ void getSignalStrength() {
     }
 
     if (rssi >= -50) {
-        bars = 4;
+        wifi_bars = 4;
     } else if (rssi < -50 && rssi >= -65) {
-        bars = 3;
+        wifi_bars = 3;
     } else if (rssi < -65 && rssi >= -75) {
-        bars = 2;
+        wifi_bars = 2;
     } else if (rssi < -75 && rssi >= -80) {
-        bars = 1;
+        wifi_bars = 1;
     } else {
-        bars = 0;
+        wifi_bars = 0;
     }
 }
 
