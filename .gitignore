@@ -12,3 +12,5 @@ src/userConfig.h
 
 platformio.ini
 **/rancilio-pid.ino.cpp
+
+**/config
