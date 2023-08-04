@@ -9,8 +9,20 @@
     const int analogPin = 0; // AI0 will be used
 #endif
 
+enum BrewState {
+    kBrewIdle = 10,
+    kPreinfusion = 20,
+    kWaitPreinfusion = 21,
+    kPreinfusionPause = 30,
+    kWaitPreinfusionPause = 31,
+    kBrewRunning = 40,
+    kWaitBrew = 41,
+    kBrewFinished = 42,
+    kWaitBrewOff = 43
+};
+
 // Normal Brew
-int brewcounter = 10;
+BrewState brewcounter = kBrewIdle;
 int brewswitch = 0;
 int brewswitchTrigger = LOW;
 int buttonStateBrewTrigger;                     // the current reading from the input pin
@@ -19,7 +31,7 @@ unsigned long debounceDelayBrewTrigger = 50;
 unsigned long brewswitchTriggermillis = 0;
 int brewswitchTriggerCase = 10;
 boolean brewswitchWasOFF = false;
-double totalBrewTime = 0;                           // total brewtime set in software or blynk
+double totalBrewTime = 0;                           // total brewtime set in software
 double timeBrewed = 0;                              // total brewed time
 double lastbrewTimeMillis = 0;                      // for shottimer delay after disarmed button
 double lastbrewTime = 0 ;

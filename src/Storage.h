@@ -25,7 +25,7 @@ typedef enum
   STO_ITEM_PID_KP_BD,               // PID P part at brew detection phase
   STO_ITEM_PID_TN_BD,               // PID I part at brew detection phase
   STO_ITEM_PID_TV_BD,               // PID D part at brew detection phase
-  STO_ITEM_BREW_SW_TIMER,           // brew software timer
+  STO_ITEM_BREW_SW_TIME,            // brew software time
   STO_ITEM_BD_THRESHOLD,            // brew detection limit
   STO_ITEM_PID_KP_START,            // PID P part at cold start phase
   STO_ITEM_PID_TN_START,            // PID I part at cold start phase
@@ -39,6 +39,7 @@ typedef enum
   STO_ITEM_BREW_TEMP_OFFSET,        // brew temp offset
   STO_ITEM_PID_START_PONM,          // Use PonM for cold start phase (otherwise use normal PID and same params)
   STO_ITEM_USE_BD_PID,              // use separate PID for brew detection (otherwise continue with regular PID)
+  STO_ITEM_STEAM_SETPOINT,          // Setpoint for Steam mode
 
   /* WHEN ADDING NEW ITEMS, THE FOLLOWING HAS TO BE UPDATED:
    * - storage structure:  sto_data_t
